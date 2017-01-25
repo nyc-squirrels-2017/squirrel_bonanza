@@ -2,4 +2,4 @@
 
 <p>Color: <%= @squirrel.color%></p>
 <p>Fluffiness: <%= @squirrel.fluffiness %> </p>
-<p>Can fly? <%= @squirrel.can_fly %></p>
+<%= erb :"squirrels/_can_fly", locals: {animal: @squirrel} %>
