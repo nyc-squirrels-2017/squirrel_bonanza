@@ -1,3 +1,3 @@
 class Squirrel < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :name, :color, presence: true
 end
