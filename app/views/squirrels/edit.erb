@@ -1,0 +1,18 @@
+<div class="">
+
+  <%= erb :'/squirrels/_errors'%>
+
+  <form class="" action="/squirrels/<%= @squirrel.id%>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="name">Name</label>
+    <input type="text" name="squirrel[name]" value="<%= @squirrel.name%>" id='name'>
+
+    <label for="color">Color</label>
+    <input type="text" name="squirrel[color]" value="<%= @squirrel.color%>" id='color'>
+
+
+    <input type="submit" name="" value="Create">
+  </form>
+
+
+</div>

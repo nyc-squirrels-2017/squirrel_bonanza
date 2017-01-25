@@ -1,7 +1,13 @@
-<h1>Here are all the squirrels!</h1>
+<div class="">
+	<h1>Here are all the squirrels!</h1>
 
-<ul>
-	<% @squirrels.each do |squirrel| %>
-		<li> <%= squirrel.name %> </li>
-	<% end %>
-</ul>
+	<ul>
+		<% @squirrels.each do |squirrel| %>
+			<li> <%= squirrel.name %> </li> <a href="/squirrels/<%= squirrel.id%>">Show</a>
+			<a href="/squirrels/<%= squirrel.id%>/edit">Edit</a>
+		<% end %>
+	</ul>
+
+<a href="/squirrels/new">Add a new squirrel</a>
+
+</div>
