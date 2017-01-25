@@ -1,1 +1,7 @@
-<p>do we see squirrels??</p>
+<h1>Here are all the squirrels!</h1>
+
+<ul>
+	<% @squirrels.each do |squirrel| %>
+		<li> <%= squirrel.name %> </li>
+	<% end %>
+</ul>
