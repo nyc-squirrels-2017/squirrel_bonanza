@@ -3,8 +3,11 @@
 
 	<ul>
 		<% @squirrels.each do |squirrel| %>
-			<li> <%= squirrel.name %> </li> <a href="/squirrels/<%= squirrel.id%>">Show</a>
-			<a href="/squirrels/<%= squirrel.id%>/edit">Edit</a>
+			<li> <%= squirrel.name %> </li>
+			<% if login? %>
+			<a href="/squirrels/<%= squirrel.id%>">Show</a>
+				<a href="/squirrels/<%= squirrel.id%>/edit">Edit</a>
+			<% end %>
 		<% end %>
 	</ul>
 
