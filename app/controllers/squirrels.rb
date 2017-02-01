@@ -4,15 +4,25 @@ get '/squirrels' do
 end
 
 get '/squirrels/new' do
+  # binding.pry
+  # request.cookies
   require_user
-  erb :'squirrels/new'
+  if request.xhr?
+    erb :'squirrels/new', layout: false
+  else
+    erb :'squirrels/new'
+  end
 end
 
 post '/squirrels' do
   require_user
   squirrel = Squirrel.new(params)
   if squirrel.save
-    redirect '/squirrels'
+    if request.xhr?
+      erb :'squirrels/_one_squirrel', layout: false, locals:{one_squirrel: squirrel}
+    else
+      redirect '/squirrels'
+    end
   else
     @errors = squirrel.errors.full_messages
     erb :'squirrels/new'

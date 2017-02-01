@@ -1,16 +1,26 @@
 <div class="">
 	<h1>Here are all the squirrels!</h1>
 
-	<ul>
+	<ul class="all-squirrels">
 		<% @squirrels.each do |squirrel| %>
-			<li> <%= squirrel.name %> </li>
-			<% if login? %>
-			<a href="/squirrels/<%= squirrel.id%>">Show</a>
-				<a href="/squirrels/<%= squirrel.id%>/edit">Edit</a>
-			<% end %>
+			<%= erb :'squirrels/_one_squirrel', locals: {one_squirrel:squirrel}%>
+
 		<% end %>
 	</ul>
 
-<a href="/squirrels/new">Add a new squirrel</a>
+<a id="show-form" href="/squirrels/new">Add a new squirrel</a>
+
+<div class="form">
+	<form class="" action="/squirrels" method="post" id='form'>
+    <label for="name">Name</label>
+    <input type="text" name="name" value="" id='name'>
+
+    <label for="color">Color</label>
+    <input type="text" name="color" value="" id='color'>
+
+
+    <input type="submit" name="" value="Create">
+  </form>
+</div>
 
 </div>

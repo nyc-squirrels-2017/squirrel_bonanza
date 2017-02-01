@@ -1,0 +1,5 @@
+<li> <%= one_squirrel.name %> </li>
+<% if login? %>
+<a href="/squirrels/<%= one_squirrel.id%>">Show</a>
+  <a href="/squirrels/<%= one_squirrel.id%>/edit">Edit</a>
+<% end %>

@@ -34,6 +34,10 @@ configure do
   set :root, APP_ROOT.to_path
   # See: http://www.sinatrarb.com/faq.html#sessions
   enable :sessions
+  # use Rack::Session::Cookie, :key => 'rack.session',
+  #                          :path => '/squirrels',
+  #                          :expire_after => 60, # In seconds
+  #                          :secret => 'some_secret'
   set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'
 
   # Set the views to
