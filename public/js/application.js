@@ -22,6 +22,7 @@ $(document).ready(function() {
       method: 'post',
       data: $(e.target).serialize()
     }).success(function(response){
+      debugger;
       console.log(response)
       $('.all-squirrels').append(response)
     }).fail(function(error){
