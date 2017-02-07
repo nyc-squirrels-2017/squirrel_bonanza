@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   validates :username, :email, presence: true
   validates :password, length: {minimum:  6}
 
-  validate :custom
+  # validate :custom
 
 
   # def custom

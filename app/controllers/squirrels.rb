@@ -19,7 +19,11 @@ post '/squirrels' do
   squirrel = Squirrel.new(params)
   if squirrel.save
     if request.xhr?
-      erb :'squirrels/_one_squirrel', layout: false, locals:{one_squirrel: squirrel}
+      # With JSON
+      content_type :json
+      {name: squirrel.name, id: squirrel.id}.to_json
+      # Without JSON
+      # erb :'squirrels/_one_squirrel', layout: false, locals:{one_squirrel: squirrel}
     else
       redirect '/squirrels'
     end
