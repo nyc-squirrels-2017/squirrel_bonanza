@@ -22,9 +22,15 @@ $(document).ready(function() {
       method: 'post',
       data: $(e.target).serialize()
     }).success(function(response){
-      debugger;
       console.log(response)
-      $('.all-squirrels').append(response)
+      // With JSON
+      var newElement = $('.one_squirrel').first().clone()
+      newElement.children().first().text(response.name)
+      newElement.find('a').first().attr('href', "/squirrels/"+response.id)
+      newElement.find('a').last().attr('href', "/squirrels/"+response.id+"/edit")
+      $('.all-squirrels').append(newElement)
+      // Without JSON
+      // $('.all-squirrels').append(response)
     }).fail(function(error){
 
     })
